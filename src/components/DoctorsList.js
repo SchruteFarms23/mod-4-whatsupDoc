@@ -8,7 +8,7 @@ class DoctorsList extends React.Component {
 	// }
 
 	render() {
-		console.log(this.props)
+		// console.log(this.props)
 		const doctorItems = this.props.doctors.map((doctor, index) => {
 			return <DoctorItem key={index} doctor={doctor}/>
 		})

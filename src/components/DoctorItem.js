@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DoctorItem = (props) => {
-   console.log(props.doctor)
+   // console.log(props.doctor)
    return (
    		<div>
    			<ol>
