@@ -14,6 +14,8 @@ class DoctorsList extends React.Component {
 
 
 		const doctorItems = filteredDocs.map((doctor, index) => {
+		// console.log(this.props)
+		const doctorItems = this.props.doctors.map((doctor, index) => {
 			return <DoctorItem key={index} doctor={doctor}/>
 		})
 		return (
