@@ -14,7 +14,7 @@ const DoctorItem = (props) => {
   bio = bio.substring(0,400) + "...";
   }
 
-
+   // console.log(props.doctor)
    return (
      <div className="ui card">
   <div className="image">
