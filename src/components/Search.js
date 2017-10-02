@@ -5,7 +5,7 @@ const Search = (props) => {
     <div className="ui huge fluid icon input">
       <input
         type="text"
-        placeholder={"Search for a doctor!"}
+        placeholder={"Search for a doctor!         ex.('brooklyn' or '11375')"}
         onChange={props.search}
       />
       <i className="circular search link icon"></i>

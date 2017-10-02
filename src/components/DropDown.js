@@ -23,8 +23,8 @@ const DropDown=(props)=> {
   const allInsurances = props.insurances.map((doc,i) => JSON.parse(doc.insurance).map((ins,i) => ins))
   const mergedArray =  [].concat.apply([], allInsurances).sort().unique();
   const mappedAllInsurances = mergedArray.map((ins,i) => <DropDownItem key={i} insurance={ins} />)
-  console.log(allInsurances)
-  console.log(mergedArray)
+  // console.log(allInsurances)
+  // console.log(mergedArray)
 
   return(
     <select onChange={props.handleChange} class="ui dropdown">
