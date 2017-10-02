@@ -26,6 +26,6 @@ class DoctorsList extends React.Component {
 			</div>
 		)
 	}
-}
 
+}
 export default DoctorsList;

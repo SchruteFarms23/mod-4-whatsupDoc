@@ -1,6 +1,19 @@
 import React from 'react';
-
 import DoctorsList from './DoctorsList';
+import Search from './Search';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { logoutUser } from '../services/user'
+
+
+    render() {
+        console.log(this.state.searchValue)
+        // console.log(this.state)
+        return(
+            <div>
+            	
+            </div>
+        )
+    }
 import Search from './Search'
 import DropDown from './DropDown'
 
@@ -58,16 +71,13 @@ class DoctorsContainer extends React.Component {
 		return(
 			<div>
 			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>
-			<Search search={this.handleSearch}/>
-			<DoctorsList doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>
+        <button onClick={this.handleLogout}>Log Out</button>
+	      <Search search={this.handleSearch}/>
+	      <Route exact path="/doctors" render={(props) => <DoctorsList doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>}/>
 			</div>
 		)
 	}
+
 }
-
 export default DoctorsContainer;
-
-
-
-
 // <DoctorsList doctors={this.state.doctors}/>
