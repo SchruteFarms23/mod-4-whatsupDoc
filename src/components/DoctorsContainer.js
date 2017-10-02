@@ -2,6 +2,7 @@ import React from 'react';
 
 import DoctorsList from './DoctorsList';
 import Search from './Search'
+import DropDown from './DropDown'
 
 
 class DoctorsContainer extends React.Component {
@@ -9,6 +10,7 @@ class DoctorsContainer extends React.Component {
 	super();
 	this.state = {
 		searchValue: "",
+		insuranceValue:"",
 		doctors: []
 		}
 	}
@@ -39,15 +41,13 @@ class DoctorsContainer extends React.Component {
 
 	}
 
-	componentDidMount() {
-		 fetch(`https://api.betterdoctor.com/2016-03-01/doctors?location=NY&skip=2&limit=10&user_key=735f4d99d100c1b2011d3119ec9caa0c`)
-    .then(response => {
-      return response.json().then((data) => {
-       return this.setState ({
-          doctors: data.data
-        })
-      })
-    })
+
+	insuranceChange=(event)=>{
+		console.log(event.target.value)
+		const insValue= event.target.value
+		this.setState({
+			insuranceValue: insValue
+		})
 	}
 
 
@@ -56,8 +56,9 @@ class DoctorsContainer extends React.Component {
 		// console.log(this.state)
 		return(
 			<div>
+			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>
 			<Search search={this.handleSearch}/>
-			<DoctorsList doctors={this.state.doctors} searched={this.state.searchValue}/>
+			<DoctorsList doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>
 			</div>
 		)
 	}
