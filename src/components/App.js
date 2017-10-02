@@ -7,6 +7,8 @@ import { loginUser, logoutUser } from '../services/user';
 import Home from './Home';
 import HOC from './Hoc'
 import Authorize from './Authorize'
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+
 
 // import './App.css';
 
@@ -58,10 +60,8 @@ class App extends Component {
 
       	<Route path="/login" render={(props) => <AuthLoginForm onLogin={this.login} {...props} />}/>
       	<Route path="/doctors" render={(props) => <AuthDoctorsContainer {...props} />} />
-        
-        
       </div>
-    );
+  );
   }
 }
 
