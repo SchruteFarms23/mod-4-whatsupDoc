@@ -48,6 +48,7 @@ class DoctorsContainer extends React.Component {
 		this.setState({
 			insuranceValue: insValue
 		})
+	}
 
 
 
