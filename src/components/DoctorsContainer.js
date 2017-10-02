@@ -2,19 +2,7 @@ import React from 'react';
 import DoctorsList from './DoctorsList';
 import Search from './Search';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import { logoutUser } from '../services/user'
-
-
-    render() {
-        console.log(this.state.searchValue)
-        // console.log(this.state)
-        return(
-            <div>
-            	
-            </div>
-        )
-    }
-import Search from './Search'
+import { logoutUser } from '../services/user';
 import DropDown from './DropDown'
 
 
