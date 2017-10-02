@@ -1,6 +1,7 @@
 import React from 'react';
 import DoctorsList from './DoctorsList';
 import Search from './Search'
+import DropDown from './DropDown'
 
 
 class DoctorsContainer extends React.Component {
@@ -8,6 +9,7 @@ class DoctorsContainer extends React.Component {
 	super();
 	this.state = {
 		searchValue: "",
+		insuranceValue:"",
 		doctors: []
 		}
 	}
@@ -37,14 +39,23 @@ class DoctorsContainer extends React.Component {
 
 	}
 
+	insuranceChange=(event)=>{
+		console.log(event.target.value)
+		const insValue= event.target.value
+		this.setState({
+			insuranceValue: insValue
+		})
+	}
+
 
 	render() {
 		console.log(this.state.searchValue)
 		// console.log(this.state)
 		return(
 			<div>
+			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>
 			<Search search={this.handleSearch}/>
-			<DoctorsList doctors={this.state.doctors} searched={this.state.searchValue}/>
+			<DoctorsList doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>
 			</div>
 		)
 	}

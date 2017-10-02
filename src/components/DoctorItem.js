@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DoctorItem = (props) => {
-  console.log(props.doctor.insurance)
+  
   if (props.doctor.image_url === "https://asset2.betterdoctor.com/assets/general_doctor_male.png" || props.doctor.image_url === "https://asset3.betterdoctor.com/assets/general_doctor_male.png" || props.doctor.image_url === "https://asset1.betterdoctor.com/assets/general_doctor_male.png"){
     props.doctor.image_url = "https://semantic-ui.com/images/avatar/large/elliot.jpg"
   }
