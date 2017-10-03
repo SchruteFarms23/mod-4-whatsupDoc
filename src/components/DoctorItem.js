@@ -22,7 +22,7 @@ const DoctorItem = (props) => {
   <div className="content">
     <a className="header">{props.doctor.name}</a>
     <div className="meta">
-      <span className="date">{props.doctor.specialties.split[0]}</span>
+      <span className="date">{props.doctor.specialties.split(" ")[0]}</span>
     </div>
     <div className="description">
       {bio}

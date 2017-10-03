@@ -44,7 +44,6 @@ class DoctorsContainer extends React.Component {
 
 
 	insuranceChange=(event)=>{
-		console.log(event.target.value)
 		const insValue= event.target.value
 		this.setState({
 			insuranceValue: insValue
@@ -54,7 +53,7 @@ class DoctorsContainer extends React.Component {
 
 
 	render() {
-		console.log(this.state.searchValue)
+		
 		// console.log(this.state)
 		return(
 			<div>

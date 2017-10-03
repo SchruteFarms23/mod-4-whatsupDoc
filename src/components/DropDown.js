@@ -27,10 +27,15 @@ const DropDown=(props)=> {
   // console.log(mergedArray)
 
   return(
-    <select onChange={props.handleChange} class="ui dropdown">
-      <option value="">Insurances</option>
+    <div className="ui form">
+      <div className="ui eight wide field" >
+      <label> Insurance</label>
+    <select onChange={props.handleChange} className="ui search dropdown">
+      <option value="">Filter by insurance carrier</option>
       {mappedAllInsurances}
     </select>
+    </div>
+    </div>
   )
 }
 
