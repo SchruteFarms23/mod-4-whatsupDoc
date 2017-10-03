@@ -32,11 +32,11 @@ componentDidMount(){
     })
   }
 
-    handleLogout = () => {
-    logoutUser()
-    this.props.history.push("/login")
+  //   handleLogout = () => {
+  //   logoutUser()
+  //   this.props.history.push("/login")
 
-  }
+  // }
 
   handleClick=(id)=>{
     console.log(id)
@@ -82,9 +82,11 @@ componentDidMount(){
     return(
       <div>
         <UserDoctorList doctors={this.state.doctors} user={this.state.user} handleClick={this.handleClick}  />
-        <button className="ui basic blue button" onClick={this.handleLogout}>Log Out</button>
+        
       </div>
 
     )
   }
 }
+
+//<button className="ui basic blue button" onClick={this.handleLogout}>Log Out</button>
