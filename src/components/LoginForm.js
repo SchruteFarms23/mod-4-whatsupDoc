@@ -47,13 +47,15 @@ class LoginForm extends React.Component {
       return (
         <div className="ui form">
           <div className="ui eight wide field">
-            <form onSubmit={this.handleSubmit}>
-              <strong><label>Username</label></strong>
-              <input type="text" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username}/>
-              <strong><label>Password</label></strong>
-              <input type="password" placeholder="password" onChange={this.handlePasswordChange} value={this.state.password}/>
-              <button className="ui basic blue button" type="submit">Submit</button>
-            </form>
+            <ul>
+              <form onSubmit={this.handleSubmit}>
+                <strong><label>Username</label></strong>
+                <input type="text" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username}/>
+                <strong><label>Password</label></strong>
+                <input type="password" placeholder="password" onChange={this.handlePasswordChange} value={this.state.password}/>
+                <button className="ui basic blue button" type="submit">Submit</button>
+              </form>
+            </ul>
           </div>
         </div>
       )

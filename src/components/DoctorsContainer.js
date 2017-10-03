@@ -59,7 +59,7 @@ class DoctorsContainer extends React.Component {
 			<div>
 			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>
 	      	<Search search={this.handleSearch}/>
-	      	<Route exact path="/doctors" render={(props) => <DoctorsList history={this.props.history} doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>}/>
+	      	<Route exact path="/home" render={(props) => <DoctorsList history={this.props.history} doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>}/>
 			</div>
 		)
 	}

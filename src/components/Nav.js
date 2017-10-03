@@ -6,10 +6,12 @@ import { Menu } from 'semantic-ui-react'
 class Nav extends React.Component {
   render() {
     return (
-      <div className="ui header menu">
-        <NavLink activeClassName="active" className="item" to="/doctors">Home</NavLink>
-        <NavLink activeClassName="active" className="item" to="/myProfile">My Profile</NavLink>
-       
+      <div className="ui blue header menu">
+      	
+	        <NavLink activeClassName="active" className="item" to="/home">Home</NavLink>
+	        <NavLink activeClassName="active" className="item" to="/myProfile">My Profile</NavLink>
+	        <NavLink activeClassName="active" className="item right" to="/login">Log In</NavLink>
+       	
       </div>
     )
   }
