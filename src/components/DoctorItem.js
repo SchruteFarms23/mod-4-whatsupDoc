@@ -1,28 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import {parseJwt} from '../services/decodeJWT'
 
 
-const DoctorItem = (props) => {
 
-  if (props.doctor.image_url === "https://asset2.betterdoctor.com/assets/general_doctor_male.png" || props.doctor.image_url === "https://asset3.betterdoctor.com/assets/general_doctor_male.png" || props.doctor.image_url === "https://asset1.betterdoctor.com/assets/general_doctor_male.png"){
-    props.doctor.image_url = "https://semantic-ui.com/images/avatar/large/elliot.jpg"
+export default class DoctorItem extends React.Component{
+
+
+
+
+  handleClick=()=>{
+    console.log("clicked me thanks")
+    if(localStorage.getItem('jwtToken')){
+      console.log("there is a token!")
+      console.log(parseJwt(localStorage.getItem('jwtToken')).user_id)
+    }else{
+      alert("login")
+    }
   }
-  if (props.doctor.image_url === "https://asset2.betterdoctor.com/assets/general_doctor_female.png" || props.doctor.image_url === "https://asset1.betterdoctor.com/assets/general_doctor_female.png" || props.doctor.image_url === "https://asset3.betterdoctor.com/assets/general_doctor_female.png"){
-    props.doctor.image_url = "https://semantic-ui.com/images/avatar2/large/rachel.png"
-  }
-  var bio = props.doctor.bio
-  if(bio.length > 400){
-  bio = bio.substring(0,400) + "...";
-  }
+  render(){
+    if (this.props.doctor.image_url === "https://asset2.betterdoctor.com/assets/general_doctor_male.png" || this.props.doctor.image_url === "https://asset3.betterdoctor.com/assets/general_doctor_male.png" || this.props.doctor.image_url === "https://asset1.betterdoctor.com/assets/general_doctor_male.png"){
+      this.props.doctor.image_url = "https://semantic-ui.com/images/avatar/large/elliot.jpg"
+    }
+    if (this.props.doctor.image_url === "https://asset2.betterdoctor.com/assets/general_doctor_female.png" || this.props.doctor.image_url === "https://asset1.betterdoctor.com/assets/general_doctor_female.png" || this.props.doctor.image_url === "https://asset3.betterdoctor.com/assets/general_doctor_female.png"){
+      this.props.doctor.image_url = "https://semantic-ui.com/images/avatar2/large/rachel.png"
+    }
+    var bio = this.props.doctor.bio
+
+    if(bio.length > 400){
+      bio = bio.substring(0,400) + "...";
+    }
+
    return (
      <div className="ui card">
   <div className="image">
-    <img src={props.doctor.image_url}/>
+    <img src={this.props.doctor.image_url}/>
   </div>
   <div className="content">
-    <a className="header">{props.doctor.name}</a>
+    <a className="header">{this.props.doctor.name}</a>
     <div className="meta">
-      <span className="date">{props.doctor.specialties.split(" ")[0]}</span>
+      <span className="date">{this.props.doctor.specialties.split(" ")[0]}</span>
     </div>
     <div className="description">
       {bio}
@@ -31,16 +48,18 @@ const DoctorItem = (props) => {
   <div className="extra content">
     <a>
       <i className="user icon"></i>
-      {props.doctor.city},{props.doctor.state}
-    </a>
+      {this.props.doctor.city},{this.props.doctor.state}
+    </a>..................... <a  className="add" onClick={this.handleClick}>Add Doc</a>
   </div>
 </div>
     )
+  }
+
  }
- export default DoctorItem
+
  // <div>
  // <div>
- // <img src = {props.doctor.image_url} />
+ // <img src = {this.props.doctor.image_url} />
  // <p>{props.doctor.name}</p>
  // <p>{props.doctor.bio}</p>
  // <div>
