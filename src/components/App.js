@@ -83,7 +83,7 @@ class App extends Component {
       	<Route path="/" component={Nav}/>
 
       	<Route path="/login" render={(props) => <AuthLoginForm onLogin={this.login} {...props} />}/>
-      	<Route path="/doctors" render={(props) => <AuthDoctorsContainer {...props} />} />
+      	<Route path="/home" render={(props) => <AuthDoctorsContainer {...props} />} />
         <Route path="/myProfile" render={(props) => <AuthMyProfile {...props} user={this.state.user} />} />
 
       </div>
