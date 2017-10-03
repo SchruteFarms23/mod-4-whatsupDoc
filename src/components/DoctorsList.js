@@ -18,7 +18,7 @@ class DoctorsList extends React.Component {
 	}
 
 		const doctorItems = filteredDocs.map((doctor, index) => {
-			return <DoctorItem key={index} doctor={doctor} history={this.props.history}/>
+			return <DoctorItem key={doctor.id} doctor={doctor} history={this.props.history}/>
 		})
 		return (
 			<div className="ui cards">

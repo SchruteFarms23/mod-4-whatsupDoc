@@ -13,8 +13,16 @@ export default class DoctorItem extends React.Component{
   handleClick=()=>{
     console.log("clicked me thanks")
     if(localStorage.getItem('jwtToken')){
-      console.log("there is a token!")
-      console.log(parseJwt(localStorage.getItem('jwtToken')).user_id)
+      const userId = parseJwt(localStorage.getItem('jwtToken')).user_id
+      const docId = this.props.doctor.id
+      fetch('http://localhost:3000/users/add',{
+      method: 'PATCH',
+      body: JSON.stringify({user_id: userId, doc_id: docId}),
+      headers: {
+        "Accept":"application/json",
+        "Content-Type":"application/json"
+      }
+    })
     }else{
       this.props.history.push('/login')
     }
