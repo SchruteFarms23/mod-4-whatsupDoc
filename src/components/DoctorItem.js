@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+
 import {parseJwt} from '../services/decodeJWT'
 
 
@@ -15,7 +16,7 @@ export default class DoctorItem extends React.Component{
       console.log("there is a token!")
       console.log(parseJwt(localStorage.getItem('jwtToken')).user_id)
     }else{
-      alert("login")
+      this.props.history.push('/login')
     }
   }
   render(){

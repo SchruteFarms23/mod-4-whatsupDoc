@@ -6,8 +6,8 @@ import DropDown from './DropDown'
 
 
 class DoctorsContainer extends React.Component {
-	constructor() {
-	super();
+	constructor(props) {
+	super(props);
 	this.state = {
 		searchValue: "",
 		insuranceValue:"",
@@ -52,13 +52,14 @@ class DoctorsContainer extends React.Component {
 
 
 	render() {
-		
+		console.log(this.props)
+
 		// console.log(this.state)
 		return(
 			<div>
 			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>
 	      	<Search search={this.handleSearch}/>
-	      	<Route exact path="/doctors" render={(props) => <DoctorsList doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>}/>
+	      	<Route exact path="/doctors" render={(props) => <DoctorsList history={this.props.history} doctors={this.state.doctors} searched={this.state.searchValue} insuranceSearch={this.state.insuranceValue}/>}/>
 			</div>
 		)
 	}
