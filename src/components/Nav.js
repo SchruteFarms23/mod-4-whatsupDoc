@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../services/user';
-import { Menu } from 'semantic-ui-react'
 
 
 class Nav extends React.Component {
@@ -34,7 +33,7 @@ class Nav extends React.Component {
       	<div className="ui blue header menu">
       	
 	        <NavLink activeClassName="active" className="item" to="/home">Home</NavLink>
-	        <NavLink activeClassName="active" className="item" to="/myProfile">My Profile</NavLink>
+	        <NavLink activeClassName="active" className="four wide item right" to="/signUp">Sign Up</NavLink>
 	        <NavLink activeClassName="active" className="item right" to="/login">Log In</NavLink>
        	
      	 </div>
