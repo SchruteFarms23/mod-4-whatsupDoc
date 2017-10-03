@@ -10,6 +10,7 @@ export default class UserProfile extends React.Component{
     user: parseJwt(localStorage.getItem('jwtToken')).user_id,
     doctors:[],
     username:"",
+    deletedoc:"",
     isLoggedin: false
   }
 componentDidMount(){
@@ -37,6 +38,40 @@ componentDidMount(){
 
   }
 
+  handleClick=(id)=>{
+    console.log(id)
+    console.log(this.state.deletedoc)
+      const userId = parseJwt(localStorage.getItem('jwtToken')).user_id
+      const docId = id
+
+      fetch('http://localhost:3000/users/delete',{
+      method: 'DELETE',
+      body: JSON.stringify({user_id: userId, doc_id: docId}),
+      headers: {
+        "Accept":"application/json",
+        "Content-Type":"application/json"
+      }
+    }).then(res=>res.json()).then( res => {
+      let doctors = this.state.doctors.filter(doc => doc.id !== id)
+      this.setState({
+      doctors:[...doctors]
+    })})
+  }
+
+
+
+  //   const userId = parseJwt(localStorage.getItem('jwtToken')).user_id
+  //   const docId = this.props.doctor.id
+  //   fetch('http://localhost:3000/users/delete',{
+  //   method: 'DELETE',
+  //   body: JSON.stringify({user_id: userId, doc_id: docId}),
+  //   headers: {
+  //     "Accept":"application/json",
+  //     "Content-Type":"application/json"
+  //   }
+  // })
+
+
 
 
 
@@ -46,7 +81,7 @@ componentDidMount(){
     // console.log(this.state.doctors)
     return(
       <div>
-        <UserDoctorList doctors={this.state.doctors} user={this.state.user} />
+        <UserDoctorList doctors={this.state.doctors} user={this.state.user} handleClick={this.handleClick}  />
         <button className="ui basic blue button" onClick={this.handleLogout}>Log Out</button>
       </div>
 
