@@ -12,7 +12,7 @@ function HOC(RenderedComponent, props) {
       if (props.shouldRender) {
         return <RenderedComponent {...this.props} {...props}/>
       } else {
-        return <p>Not allowed to see component</p>
+        return ""
       }
 
     }
