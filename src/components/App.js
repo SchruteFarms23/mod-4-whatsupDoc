@@ -6,9 +6,10 @@ import { Route, Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import { loginUser, logoutUser } from '../services/user';
 import Home from './Home';
-import HOC from './Hoc'
-import Authorize from './Authorize'
+import HOC from './Hoc';
+import Authorize from './Authorize';
 
+ 
 
 
 // import './App.css';
@@ -18,6 +19,7 @@ class App extends Component {
 	state = {
 		user: {},
 		isLoggedIn: false,
+    	doctors: []
 
 	}
 
@@ -83,6 +85,7 @@ class App extends Component {
       	<Route path="/login" render={(props) => <AuthLoginForm onLogin={this.login} {...props} />}/>
       	<Route path="/doctors" render={(props) => <AuthDoctorsContainer {...props} />} />
         <Route path="/myProfile" render={(props) => <AuthMyProfile {...props} user={this.state.user} />} />
+
       </div>
   );
   }

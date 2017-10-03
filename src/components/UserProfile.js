@@ -47,7 +47,7 @@ componentDidMount(){
     return(
       <div>
         <UserDoctorList doctors={this.state.doctors} user={this.state.user} />
-        <button onClick={this.handleLogout}>Log Out</button>
+        <button className="ui basic blue button" onClick={this.handleLogout}>Log Out</button>
       </div>
 
     )
