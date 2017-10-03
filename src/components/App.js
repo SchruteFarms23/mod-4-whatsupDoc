@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DoctorsContainer from './DoctorsContainer';
 import UserProfile from './UserProfile';
 import Nav from './Nav';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import { loginUser, logoutUser } from '../services/user';
 import Home from './Home';

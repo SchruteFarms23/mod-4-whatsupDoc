@@ -1,7 +1,7 @@
 import React from 'react';
 import DoctorsList from './DoctorsList';
 import Search from './Search';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import DropDown from './DropDown'
 
 

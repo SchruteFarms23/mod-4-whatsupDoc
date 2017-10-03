@@ -1,5 +1,5 @@
 import React from 'react';
-import {parseJwt} from '../services/decodeJWT'
+// import {parseJwt} from '../services/decodeJWT'
 
 export default class UserDoctor extends React.Component{
 

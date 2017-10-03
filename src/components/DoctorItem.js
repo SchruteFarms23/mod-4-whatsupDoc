@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 
 import {parseJwt} from '../services/decodeJWT'
 
@@ -42,25 +42,25 @@ export default class DoctorItem extends React.Component{
 
    return (
      <div className="ui card">
-  <div className="image">
-    <img src={this.props.doctor.image_url}/>
+      <div className="image">
+       <img src={this.props.doctor.image_url}/>
+      </div>
+      <div className="content">
+        <a className="header">{this.props.doctor.name}</a>
+          <div className="meta">
+            <span className="date">{this.props.doctor.specialties.split(" ")[0]}</span>
+          </div>
+      <div className="description">
+        {bio}
+      </div>
+      </div>
+      <div className="extra content">
+        <a>
+          <i className="user icon"></i>
+          {this.props.doctor.city},{this.props.doctor.state}
+        </a>..................... <a  className="add" onClick={this.handleClick}>Add Doc</a>
+      </div>
   </div>
-  <div className="content">
-    <a className="header">{this.props.doctor.name}</a>
-    <div className="meta">
-      <span className="date">{this.props.doctor.specialties.split(" ")[0]}</span>
-    </div>
-    <div className="description">
-      {bio}
-    </div>
-  </div>
-  <div className="extra content">
-    <a>
-      <i className="user icon"></i>
-      {this.props.doctor.city},{this.props.doctor.state}
-    </a>..................... <a  className="add" onClick={this.handleClick}>Add Doc</a>
-  </div>
-</div>
     )
   }
 

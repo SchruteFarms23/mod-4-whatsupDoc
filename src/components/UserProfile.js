@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import UserDoctorList from './UserDoctorList';
-import { logoutUser } from '../services/user'
 import {parseJwt} from '../services/decodeJWT'
 
 
