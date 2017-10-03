@@ -31,10 +31,8 @@ componentDidMount(){
 
     handleLogout = () => {
     logoutUser()
-    // this.props.history.push("/login")
-    this.setState({
-      isLoggedIn: false
-    })
+    this.props.history.push("/login")
+    
   }
 
 
