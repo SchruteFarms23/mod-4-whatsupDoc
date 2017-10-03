@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
-import UserDoctorList from './UserDoctorList'
+import UserDoctorList from './UserDoctorList';
+import { logoutUser } from '../services/user'
 
 
 export default class UserProfile extends React.Component{
   state = {
     user: this.props.user,
     doctors:[],
-    username:""
+    username:"",
+    isLoggedin: false
   }
 componentDidMount(){
     console.log("im ok with this", this.state.user)
@@ -27,15 +29,26 @@ componentDidMount(){
     })
   }
 
+    handleLogout = () => {
+    logoutUser()
+    // this.props.history.push("/login")
+    this.setState({
+      isLoggedIn: false
+    })
+  }
+
 
 
 
 
   render(){
 
-    console.log(this.state.doctors)
+    // console.log(this.state.doctors)
     return(
-      <UserDoctorList doctors={this.state.doctors} user={this.state.user.user.id} />
+      <div>
+        <UserDoctorList doctors={this.state.doctors} user={this.state.user.user.id} />
+        <button onClick={this.handleLogout}>Log Out</button>
+      </div>
 
     )
   }
