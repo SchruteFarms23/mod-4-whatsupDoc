@@ -15,11 +15,14 @@ class LoginForm extends React.Component {
 
 
   handleSubmit = (event) => {
+    // console.log(this.state.username)
+    // debugger;
     event.preventDefault()
     console.log("Clicking Button", this.state.username, this.state.password)
     // send some api call to the backend
     // clear fields
     const loginParams = { username: this.state.username, password: this.state.password}
+
     this.props.onLogin(loginParams)
     this.setState({
       username: "",

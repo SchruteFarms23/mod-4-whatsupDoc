@@ -18,7 +18,8 @@ function Authorize(RenderedComponent, props) {
 
         return <Redirect to="/login" />
         // not logged in
-      } else {
+      } 
+      else {
         return (
           <RenderedComponent {...this.props} {...props}/>
         )

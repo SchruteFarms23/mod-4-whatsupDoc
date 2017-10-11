@@ -3,11 +3,13 @@ import DoctorsContainer from './DoctorsContainer';
 import UserProfile from './UserProfile';
 import Nav from './Nav';
 import { Route } from 'react-router-dom';
-import LoginForm from './LoginForm';
+// import LoginScreen from './LoginScreen';
+import LoginForm  from './LoginForm';
 import { loginUser, logoutUser } from '../services/user';
 import Home from './Home';
 import HOC from './Hoc';
 import Authorize from './Authorize';
+import SignUp from './SignUp'
 
  
 
@@ -19,7 +21,8 @@ class App extends Component {
 	state = {
 		user: {},
 		isLoggedIn: false,
-    	doctors: []
+    	doctors: [],
+      loginPage: []
 
 	}
 
@@ -34,6 +37,16 @@ class App extends Component {
 		})
 	}
 
+  
+
+  // componentWillMount() {
+  //   var loginPage =[];
+  //   loginPage.push(<LoginScreen parentContext={this}/>);
+  //          this.setState({
+  //               loginPage:loginPage
+  //                   })
+  
+  // }
 
 
 	logout = () => {
@@ -43,6 +56,16 @@ class App extends Component {
 			isLoggedIn: false
 		})
 	}
+
+  // signUp =  signUpUser(signUpParams)
+  //   .then((user) => {
+  //     localStorage.setItem("jwtToken", user.jwt)
+  //     this.setState({
+  //       user: user,
+  //       isLoggedIn: true
+  //     })
+  //   })
+  // }
 
   // fetchDoctors = () => {
   //   console.log("im ok with this", this.state.user)
@@ -75,13 +98,16 @@ class App extends Component {
   	const AuthDoctorsContainer = Authorize(DoctorsContainer)
   	const AuthLoginForm = Authorize(LoginForm)
     const AuthMyProfile = Authorize(UserProfile)
+    // const AuthSignUp = Authorize(SignUp)
 
     return (
       <div className="App">
+
       	<NewHome show={true} user={this.state.user}/>
 
       	<Route path="/" component={Nav}/>
 
+        <Route path="/signUp" render={(props) => <SignUp {...props}/>}/>
       	<Route path="/login" render={(props) => <AuthLoginForm onLogin={this.login} {...props} />}/>
       	<Route path="/home" render={(props) => <AuthDoctorsContainer {...props} />} />
         <Route path="/myProfile" render={(props) => <AuthMyProfile {...props} user={this.state.user} />} />
