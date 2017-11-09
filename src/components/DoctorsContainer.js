@@ -15,14 +15,6 @@ class DoctorsContainer extends React.Component {
 		}
 	}
 
-
-	// handleChange = () => {
-	// 	fetch(https/localhost/3000/doctors){
-	// 		'method':'post',
-	//
-	// 	}
-	// }
-
 	componentDidMount(){
 		fetch('http://localhost:3000/doctors')
 		.then(res => res.json())
@@ -33,7 +25,6 @@ class DoctorsContainer extends React.Component {
 	}
 
 	handleSearch=(event)=>{
-		// console.log(event.target.value)
 		const searchTerm = event.target.value
 		this.setState({
 			searchValue: searchTerm
@@ -52,9 +43,6 @@ class DoctorsContainer extends React.Component {
 
 
 	render() {
-		console.log(this.props)
-
-		// console.log(this.state)
 		return(
 			<div>
 			<DropDown insurances={this.state.doctors} handleChange={this.insuranceChange}/>

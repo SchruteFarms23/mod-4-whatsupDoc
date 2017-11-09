@@ -14,9 +14,6 @@ class SignUp extends React.Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault()
-		// console.log("hi")
-		// console.log(this.state.username)
-		// console.log(this.state.password)
 		const signupParams = {
     		username: this.state.username,
     		password: this.state.password }
@@ -33,42 +30,12 @@ class SignUp extends React.Component {
       	return res.json()})
       	.then((user) => {
 			localStorage.setItem("jwtToken", user.jwt)
-			}) 
+			})
     	.then((res) => this.props.history.push('/myProfile'))
 
-	}	
+	}
 
-
-  //   event.preventDefault()
-  //   var apiBaseUrl = "http://localhost:3000/users";
-  //   var self = this;
-  //   if (this.state.username.length > 0 && this.state.password.lenght > 0) {
-    	// var payload = {
-    	// 	"username": this.state.username,
-    	// 	"password": this.state.password }
-		// const body = JSON.stringify(payload)
-  // 			return fetch(apiBaseUrl, payload) 
-		// 	    .then((res) => {
-		// 	      console.log(res);
-		// 	      if (res.data.code == 200) {
-		// 	      	var loginscreen = [];
-		// 	      	loginscreen.push(<LoginForm parentContext={this}/>)
-		// 	      	var loginmessage = "Not Registered yet.Go to registration";
-		// 	      	self.props.parentContext.setState({loginscreen:loginscreen,
-  //      				loginmessage:loginmessage,
-  //     				buttonLabel:"Register",
-  //      				isLogin:true
-		// 	      })
-  //   		}
-		// })
-		//     	.catch(function (error) {
-		//     		console.log(error)
-	 //    	})
-  //   	}
-
-    
-
-  	handleUsernameChange = (event) => {
+	handleUsernameChange = (event) => {
     	this.setState({
         username: event.target.value
     })

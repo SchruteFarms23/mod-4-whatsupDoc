@@ -9,12 +9,12 @@ class Nav extends React.Component {
 		isLoggedin: false
 	}
 
-	
+
 	handleLogout = () => {
     logoutUser()
     this.props.history.push("/login")
+	}
 
-  }
 
 
 
@@ -27,18 +27,18 @@ class Nav extends React.Component {
 		        <NavLink activeClassName="active" className="item" to="/myProfile">My Profile</NavLink>
 		        <NavLink activeClassName="active" className="item right" to="/login" onClick={this.handleLogout} >Log Out</NavLink>
   			</div>
-		)
+			)
   	} else {
-    return (
+    	return (
       	<div className="ui blue header menu">
-      	
+
 	        <NavLink activeClassName="active" className="item" to="/home">Home</NavLink>
 	        <NavLink activeClassName="active" className="item right" to="/signUp">Sign Up</NavLink>
 	        <NavLink activeClassName="active" className="item right" to="/login">Log In</NavLink>
-       	
+
      	 </div>
     	)
-	}	
+			}
   }
 }
 

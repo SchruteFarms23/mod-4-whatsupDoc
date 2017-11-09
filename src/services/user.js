@@ -1,5 +1,4 @@
 export function loginUser(loginParams) {
-  
   const body = JSON.stringify(loginParams)
   return fetch("http://localhost:3000/login", {
     method: 'post',
@@ -9,12 +8,11 @@ export function loginUser(loginParams) {
       "Content-Type":"application/json"
     }
   })
-    .then((res) => {
-      return res.json()})
+  .then((res) => {
+    return res.json()})
+  }
 
-}
 
-
-export function logoutUser() {
-  localStorage.removeItem("jwtToken")
-}
+  export function logoutUser() {
+    localStorage.removeItem("jwtToken")
+  }
